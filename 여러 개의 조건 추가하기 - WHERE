@@ -1,0 +1,15 @@
+예제)
+
+1) 수학 점수가 80점 초과, 국어 점수가 90점 이상인 학생의 정보를 검색해보세요.
+
+﻿SELECT * FROM score WHERE math >= 80 and kore﻿an >= 90
+2) 여자 직원 중 이름이 Chirstian인 직원들을 출력
+
+SELECT * FROM employees WHERE gender = 'F' and first_name = 'Chirstian';
+3) first_name이 'Chirstian' 또는 'Georgi' 이다.
+
+gender가 남자이다.
+
+hire_date가 '1986-06-26' 이 아니다.
+
+SELECT * FROM employees WHERE (first_name = 'Chirstian' or first_name = 'Georgi') and gend
