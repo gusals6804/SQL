@@ -1,0 +1,17 @@
+예제
+
+1) 국어, 영어, 수학 점수 중 하나라도 100점인 학생을 검색해보세요.
+SELECT * FROM score WHERE korean = 100 or english = 100 or math = 100;
+
+2) 3과목 모두 70~95점 사이인 학생을 검색해보세요.
+SELECT * 
+FROM score
+WHERE korean between 70 and 95
+and english between 70 and 95
+and math between 70 and 95;
+
+3) 1980년에서 1989년 사이에 입사한 직원
+SELECT * FROM employees WHERE  hire_date BETWEEN '1980-01-01' and '1989-12-31';
+
+4) 1990년에서 1999년 사이에 입사한 직원
+SELECT * FROM employees WHERE  hire_date BETWEEN '1990-01-01' and '1999-12-31';
