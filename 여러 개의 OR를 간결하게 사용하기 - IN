@@ -1,0 +1,17 @@
+1. 다음 작가가 쓴 책들만 골라서 출력해 봅시다.
+
+William Shakespeare
+John Ronald Reuel Tolkien
+Joanne Kathleen Rowling
+
+SELECT 
+* FROM book
+WHERE author in ('William Shakespeare', 'John Ronald Reuel Tolkien', 'Joanne Kathleen Rowling');
+
+2. 다음의 이름(last_name)을 가진 사람들만 골라서 검색해봅시다.
+
+Michaels
+Genin
+Peha
+
+SELECT * FROM employees WHERE last_name in ('Michaels', 'Genin', 'Peha')
