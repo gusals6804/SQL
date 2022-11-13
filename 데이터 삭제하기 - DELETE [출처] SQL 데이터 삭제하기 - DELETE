@@ -1,0 +1,12 @@
+book 테이블에서 아래 제목을 가진 책들을 데이터베이스에서 삭제하세요.
+
+-Harry Potter and the Philosopher's Stone
+-The Lord of the Rings
+
+DELETE
+FROM book
+where title = 'Harry Potter and the Philosopher\'s Stone';
+
+DELETE
+FROM book
+where title = 'The Lord of the Rings';
