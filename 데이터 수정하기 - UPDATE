@@ -1,0 +1,15 @@
+1) 도서관에서는 대출과 반납 현황 역시 DB를 이용해 관리합니다.
+
+빌려 갈 때 rental 테이블에 값을 추가하는데 이때 반납시간은 NULL로 두었다가 반납할 때, 반납 시간을 기록합니다.
+Elice 회원이 2019-04-05 12:00:30에 책을 반납하였습니다.
+이에 맞게 반납시간을 NULL에서 올바른 시간으로 변경해 봅시다.
+
+UPDATE rental
+SET rental_end_date = '2019-04-05 12:00:30'
+WHERE id = '1000';
+
+2) employees 테이블에서 emp_no이 10001인 직원의 생년월일(birth_date)을 '1953-09-01' 으로 수정해보세요.
+
+UPDATE employees
+SET birth_date = '1953-09-01'
+WHERE emp_no = 10001;
