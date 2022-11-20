@@ -1,0 +1,3 @@
+grade 테이블에서 모든 국어 점수의 평균, 모든 영어 점수의 평균, 모든 수학 점수의 평균 총 세개의 값을 구해봅시다.
+
+SELECT AVG(korean), AVG(english), AVg(math) FROM grade;
