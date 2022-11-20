@@ -1,0 +1,7 @@
+국어시험에서 가장 높은 점수가 몇 점이었는지 student테이블에서 조회
+
+SELECT MAX(korean) FROM student;
+
+가장 많은 연봉액을 구해봅시다.
+
+SELECT MAX(salary) FROM salaries;
