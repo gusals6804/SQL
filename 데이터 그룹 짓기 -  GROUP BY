@@ -9,4 +9,4 @@ GROUP BY user_id;
 
 SELECT emp_no, count(*)
 FROM salaries
-GROUP BY emp_no;
+GROUP BY emp_no; 
