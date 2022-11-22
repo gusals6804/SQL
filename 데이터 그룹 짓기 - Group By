@@ -1,0 +1,12 @@
+1) rental테이블에는 어떤 사람이 어떤 책을 빌려 갔는지 저장되어있습니다.
+이 정보를 이용해서 어떤 사람이 몇 권의 책을 빌려 갔는지 확인하려고 합니다.
+GROUP BY문을 이용해 유저별로 몇 권의 책을 빌렸는지 확인해 봅시다.
+
+SELECT user_id, count(*) FROM rental
+GROUP BY user_id;
+
+2) salaries 테이블에서 emp_no과 직원별로 연봉을 받은 횟수를 조회
+
+SELECT emp_no, count(*)
+FROM salaries
+GROUP BY emp_no;
