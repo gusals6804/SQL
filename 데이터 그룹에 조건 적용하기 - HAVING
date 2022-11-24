@@ -1,0 +1,14 @@
+1) rental테이블의 user_id 컬럼과 해당 컬럼값에 해당하는 데이터의 수를 차례대로 출력해 보세요.
+출력할 때 데이터의 수가 2 이상인 경우만 출력하도록 해 보세요.
+
+SELECT user_id, count(*)
+FROM rental
+GROUP BY user_id
+HAVING count(user_id) >= 2;
+
+2) salaries 테이블에서 emp_no과 직원별로 연봉을 받은 횟수를 조회하되 연봉을 10번 이상 받은 직원만 조회
+
+SELECT emp_no, count(*)
+FROM salaries
+GROUP BY emp_no
+HAVING count(salary) >= 10;
