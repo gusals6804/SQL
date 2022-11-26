@@ -1,0 +1,12 @@
+앞선 실습에서는 대여 기록을 user테이블과 연결해 조회해 보았습니다.
+이번에는 연결을 할 때 왼쪽 부분인 rental테이블이 모두 조회되도록 LEFT JOIN을 이용해 연결해 봅시다.
+
+SELECT *
+FROM rental
+LEFT JOIN user
+on rental.user_id = user.id;
+
+앞선 실습에서는 연봉 기록을 employees테이블과 연결해 검색해보았습니다.
+이번에는 연결을 할 때 왼쪽 부분인 salaries 테이블이 모두 검색되도록 LEFT JOIN을 이용해 연결해 봅시다.
+
+SELECT * FROM salaries LEFT JOIN employees on salaries.emp_no = employees.emp_no
