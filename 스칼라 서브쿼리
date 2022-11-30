@@ -1,0 +1,21 @@
+스칼라 서브쿼리
+
+select절에서 서브쿼리를 사용하는 것을 스칼라 서브쿼리라고 합니다.
+이 스칼라 서브쿼리는 오로지 한 행만을 반환하는 특징을 가집니다.
+
+salaries 테이블에는 한 직원의 연도별 급여들이 들어있으며 스칼라 서브쿼리를 사용해 각 직원별 직원의 평균급여를 검색해야합니다.
+조인을 사용하지 않고, 직원 번호와 평균 급여를 중복 없이 출력해주세요.
+
+지시사항
+salaries 테이블에서 직원 번호(emp_no)과 평균급여(avg_salary) 두 가지를 검색합니다.
+평균 급여는 SELECT 절에서 서브쿼리를 이용해 직접 계산하며 별칭을 avg_salary로 지합니다.
+중복 없이 검색하기 위해 DISTINCT 를 이용하세요.
+
+SELECT DISTINCT emp_no,
+(
+SELECT avg(salary)
+FROM salaries as A
+WHERE A.emp_no = B.emp_no
+) as avg_salary
+
+FROM salaries as B
