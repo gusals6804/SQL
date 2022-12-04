@@ -1,0 +1,24 @@
+lecture_basic 테이블과 lecture_special 테이블에는 ID, 강의 이름, 학생 번호, 학생 이름 정보가 담겨 있습니다.
+해당 테이블의 데이터를 통해 기본강의와 특별강의 상관없이 강의에 참여한 학생들의 학생 번호와 학생 이름을 조회하고 싶습니다.
+이를 위해, 두 개의 테이블에서 각각 학생 번호(student_number) 와 학생 이름(student_name) 을 조회하는 2개의 SELECT 쿼리 결과를 조회해 봅시다.
+이때 데이터의 중복이 없도록 처리해주는 집합 연산자를 이용합니다.
+lecture_basic 테이블과 lecture_special 테이블의 구조는 서로 동일하며 다음과 같습니다.
+
+-- 1. lecture_basic 테이블에서 학생번호(student_number)와 학생이름(student_name)을 조회하는 쿼리를 작성하세요.
+
+SELECT student_number, student_name
+FROM lecture_basic;
+
+-- 2. lecture_special 테이블에서 학생번호(student_number)와 학생이름(student_name)을 조회하는 쿼리를 작성하세요.
+
+SELECT student_number, student_name
+FROM lecture_special;
+
+-- 3. 위 2개의 쿼리에 대해서 집합 연산자를 이용하여 데이터 연결 및 정렬과 중복제거를 시행하는 쿼리를 작성하세요.
+
+SELECT student_number, student_name
+FROM lecture_basic
+UNION
+SELECT student_number, student_name
+FROM lecture_special
+ORDER BY student_number ASC;
