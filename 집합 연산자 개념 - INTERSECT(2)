@@ -1,0 +1,18 @@
+student라는 학생 테이블에는 학생들의 정보가, lecture_special이라는 특별강의 테이블에는 강의에 대한 신청 정보가 담겨 있습니다.
+학생 테이블에서 관리하는 학생들 중에서는 특별강의를 신청한 사람도 있고 아닌 사람도 있습니다.
+우리가 관리하고 있는 학생들 중에서 특별강의를 신청한 학생을 찾아봅시다.
+두 개의 테이블에서 각각 이름(name) 과 이메일(email) 을 조회하는 2개의 SELECT 쿼리 결과에 대해서 공통으로 존재하는 데이터만 조회하는 쿼리를 집합 연산자 로 만들어 봅시다.
+
+-- 1. student 테이블에서 이름(name)와 이메일(email)을 조회하는 쿼리를 작성하세요.
+
+SELECT name, email FROM student;
+
+-- 2. lecture_special 테이블에서 이름(name)와 이메일(email)을 조회하는 쿼리를 작성하세요.
+
+SELECT name, email FROM lecture_special;
+
+-- 3. 위 2개의 쿼리에 대해서 집합 연산자를 이용하여 공통적으로 존재하는 데이터를 조회하는 쿼리를 작성해주세요.
+
+SELECT name, email FROM student
+INTERSECT
+SELECT name, email FROM lecture_special;
