@@ -1,0 +1,13 @@
+EMPLOYEE 테이블과 POSITION_T 테이블에는 각 테이블의 구조에 맞도록 사원 정보 및 직급 정보가 담겨 있습니다.
+EMPLOYEE 테이블의 사원 정보에는 직급의 명칭이 담겨있지 않고, 어떤 직급인지에 대한 직급 ID가 담겨있습니다.
+각 사원 정보에 따라서 직급 명칭을 알기 위해 INNER JOIN과 ON을 활용하여 사원 번호(EMPLOYEE_ID), 이름(NAME), 직급 명칭(POSITION_NAME) 을 조회하는 쿼리를 작성해봅시다.
+
+-- EMPLOYEE 테이블과 POSITION_T 테이블에 대해 POSITION_ID가 같은 데이터에 대해
+
+-- 사원번호(EMPLOYEE_ID)와 이름(NAME), 직급명칭(POSITION_NAME)을 조회하는 쿼리를 작성해보세요.
+
+SELECT EMPLOYEE_ID, NAME, POSITION_NAME
+FROM EMPLOYEE
+INNER JOIN POSITION_T
+ON EMPLOYEE.POSITION_ID = POSITION_T.POSITION_ID
+ORDER BY EMPLOYEE_ID;
