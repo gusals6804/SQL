@@ -1,0 +1,15 @@
+STORE 테이블에는 가게 타입 코드와 가게 이름 정보가 담겨 있으며, STORE_TYPE_CODE 테이블에는 가게 타입 코드와 타입 이름 정보가 담겨 있습니다.
+STORE 테이블에는 어떠한 타입의 가게인지 가게 타입 이름이 저장되어 있지 않고, 가게 타입 코드 정보가 저장되어 있습니다. 
+STORE_TYPE_CODE 테이블을 이용하여 STORE 테이블에서 각 가게가 어떤 가게 타입인지 코드가 아닌 이름으로 표현되도록 쿼리를 작성해봅시다.
+STORE 테이블에 대해서 STORE_TYPE_CODE 테이블과 가게 타입 코드(store_type_code) 를 이용하여 INNER JOIN를 실시해 
+가게 이름(store_name)과 타입 이름(store_type_name) 을 조회하는 쿼리를 작성해봅시다.
+
+-- STORE 테이블과 STORE_TYPE_CODE 테이블에 대해 store_type_code 컬럼을 이용하여 조인을 실시해,
+-- 가게이름(store_name)과 타입이름(store_type_name)을 조회하는 쿼리를 작성해보세요.
+
+SELECT store_name, store_type_name
+FROM STORE
+INNER JOIN STORE_TYPE_CODE
+ON STORE.store_type_code =
+STORE_TYPE_CODE.store_type_code
+ORDER BY store_name;﻿
