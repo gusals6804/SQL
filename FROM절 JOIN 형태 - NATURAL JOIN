@@ -1,0 +1,9 @@
+LOGIN_HISTORY 테이블에는 멤버의 로그인 이력 정보가 담겨있으며, MEMBER 테이블에는 멤버의 정보가 담겨있습니다.
+하지만 LOGIN_HISTORY 테이블에는 멤버의 이름 정보가 담겨 있지 않고, 멤버 ID정보가 담겨있습니다. JOIN을 활용하여 로그인 이력 정보에 멤버 이름을 함께 출력해봅시다.
+LOGIN_HISTORY 테이블에 있는 멤버 ID(MEMBER_ID) 를 통해 MEMBER테이블과 NATURAL JOIN으로 결합해 로그인 이력 ID(login_history_id), 멤버 이름(member_name), 
+멤버 이메일(member_email), 로그인 시각(login_date) 정보를 출력하는 쿼리를 작성해봅시다.
+
+SELECT login_history_id, member_name, member_email, login_date
+FROM LOGIN_HISTORY
+NATURAL JOIN MEMBER
+ORDER BY login_history_id;
