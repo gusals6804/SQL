@@ -1,0 +1,10 @@
+FIRST_NAME_T 테이블과 LAST_NAME_T 테이블에는 각 테이블의 구조에 맞도록 id 값과 first_name 또는 last_name 정보가 담겨 있습니다.
+FIRST_NAME_T 테이블의 데이터와 LAST_NAME_T 테이블의 데이터를 결합하면 가상의 이름 데이터 하나가 출력됩니다. 
+그럼 각 테이블의 모든 데이터를 이용하여 first_name과 last_name에 대한 모든 경우의 수를 구해봅시다.
+가능한 이름의 조합에 대해 모든 경우의 수를 출력하기 위해 CROSS JOIN을 활용하려고 합니다.
+FIRST_NAME_T 테이블과 LAST_NAME_T 테이블에 대해서 CROSS JOIN을 통해 결합하여 first_name과 last_name을 출력하여 가능한 모든 케이스를 조회하는 쿼리를 작성해봅시다.
+
+SELECT first_name과, last_name
+FROM FIRST_NAME_T
+CROSS JOIN LAST_NAME_T
+ORDER BY first_name, last_name;
