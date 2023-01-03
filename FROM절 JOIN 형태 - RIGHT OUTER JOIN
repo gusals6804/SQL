@@ -1,0 +1,13 @@
+RESPONSE_DTL 테이블에는 응답 ID와 응답 내용이 담겨있으며, REQUEST 테이블에는 요청 ID, 요청 멤버 ID, 응답 ID가 담겨 있습니다.
+RESPONSE_DTL 테이블의 응답 내용과, REQUEST 테이블의 요청 멤버 ID 정보를 함께 출력하려고 합니다.
+하지만 이때 응답 내용이 없는 응답 ID가 존재하지만, 이러한 경우 응답 내용을 NULL로 출력하고자 합니다.
+RESPONSE_DTL 테이블을 기준으로 하여 REQUEST 테이블과 응답 ID(response_id) 컬럼으로 RIGHT OUTER JOIN을 실시하여, 
+요청 ID(request_id), 요청 멤버 ID(request_member_id), 응답 내용(response_content) 를 출력하는 쿼리를 작성해봅시다.
+
+-- RESPONSE_DTL테이블을 기준으로 REQUEST테이블과 RIGHT OUTER JOIN을 실시하는 쿼리를 작성해보세요.
+
+SELECT request_id, request_member_id, response_content
+FROM RESPONSE_DTL
+RIGHT OUTER JOIN REQUEST
+ON RESPONSE_DTL.response_id = REQUEST.response_id
+ORDER BY request_id;
