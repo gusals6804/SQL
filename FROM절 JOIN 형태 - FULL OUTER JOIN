@@ -1,0 +1,43 @@
+FRONT_VERSION_HIST 테이블과 BACK_VERSION_HIST 테이블에는 각 버전 ID 값과 버전 내용이 담겨 있습니다.
+버전 ID를 기준으로 프론즈 버전 내용과, 백 버전 내용을 함께 출력하고자 합니다.
+하지만 모든 버전 ID에 대해 프론트 버전 내용과 백 버전 내용이 존재하는 것은 아닙니다.
+특정 버전 ID에 프론트 버전 내용이나 백 버전 내용이 없다면 NULL로 출력해봅시다.
+두 개의 테이블에 대해서 FULL OUTER JOIN 개념을 활용해, 버전 ID(version_id), 
+프론트 버전 내용(version_content_front), 백 버전 내용(version_content_back) 에 대해서 출력하려고 합니다.
+실습 환경이 MariaDB이기에 LEFT OUTER JOIN과 RIGHT OUTER JOIN을 활용하여 쿼리를 작성해보세요.
+
+-- 1. FRONT_VERSION_HIST 테이블을 기준으로 BACK_VERSION_HIST 테이블과 버전ID로 LEFT OUTER JOIN을 해주세요.
+
+SELECT FRONT_VERSION_HIST.version_id, version_content_front,
+version_content_back
+FROM FRONT_VERSION_HIST
+LEFT OUTER JOIN BACK_VERSION_HIST
+ON FRONT_VERSION_HIST.version_id =
+BACK_VERSION_HIST.version_id
+ORDER BY version_id;
+
+-- 2. FRONT_VERSION_HIST 테이블을 기준으로 BACK_VERSION_HIST 테이블과 버전ID로 RIGHT OUTER JOIN을 해주세요.
+
+SELECT BACK_VERSION_HIST.version_id, version_content_front, version_content_back
+FROM FRONT_VERSION_HIST
+RIGHT OUTER JOIN BACK_VERSION_HIST
+ON FRONT_VERSION_HIST.version_id =
+BACK_VERSION_HIST.version_id
+ORDER BY version_id;
+
+-- 3. 위에서 작성한 두 쿼리에서 ORDER BY를 제거 후, 중복을 제거하는 집합연산자로 결합하고 최종 결과에 대해 정렬을 해주세요.
+
+SELECT FRONT_VERSION_HIST.version_id, version_content_front, version_content_back
+FROM FRONT_VERSION_HIST
+LEFT OUTER JOIN BACK_VERSION_HIST
+ON FRONT_VERSION_HIST.version_id =
+BACK_VERSION_HIST.version_id
+
+UNION
+
+SELECT BACK_VERSION_HIST.version_id, version_content_front, version_content_back
+FROM FRONT_VERSION_HIST
+RIGHT OUTER JOIN BACK_VERSION_HIST
+ON FRONT_VERSION_HIST.version_id =
+BACK_VERSION_HIST.version_id
+ORDER BY version_id;
