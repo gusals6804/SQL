@@ -1,0 +1,14 @@
+REQUEST_HIST 테이블에는 요청 ID, 요청 상태, 요청 멤버 ID 정보가 담겨 있으며 MEMBER 테이블에는 멤버 ID, 멤버 이름 정보가 담겨 있습니다.
+위의 테이블을 이용하여, 어떤 멤버의 요청이 fail처리 되었는지 확인해보려고 합니다. 
+이때 REQUEST_HIST 테이블에는 멤버 이름이 아닌, 요청 멤버 ID 정보가 담겨 있으므로 MEMBER 테이블과 INNER JOIN을 활용해 봅시다.
+REQUEST_HIST 테이블에서 요청상태가 fail 인 정보에 대해서만 조회하되, MEMBER 테이블과 INNER JOIN을 활용하여 요청 ID(request_id), 
+요청 상태(req_status), 멤버 이름(member_name) 을 출력하는 쿼리를 작성해봅시다.
+
+-- REQUEST_HIST 테이블과 MEMBER 테이블을 INNER JOIN하여 조회하되, 요청상태(req_status)가 fail인 정보만 조회하는 쿼리를 작성하세요.
+
+SELECT request_id, req_status, member_name
+FROM REQUEST_HIST
+INNER JOIN MEMBER
+ON REQUEST_HIST.req_member_id = MEMBER.member_id
+WHERE req_status = 'fail'
+ORDER BY request_id;
