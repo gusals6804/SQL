@@ -1,0 +1,15 @@
+EMPLOYEE 테이블에는 직원 ID, 관리자 ID, 급여 정보가 담겨 있습니다.
+직원들 중에서 자신의 관리자보다 급여가 높거나 같은 직원에 대해서 알아보고자 합니다. 
+EMPLOYEE 테이블에는 직원에 대해 관리자 ID 정보만 있기 때문에, 연관 서브쿼리를 통해 직원의 관리자 급여정보를 추출해야 합니다.
+연관 서브쿼리를 이용하여, 자신의 관리자보다 급여가 높거나 같은 직원 ID를 조회하는 쿼리를 작성해 봅시다.
+
+-- 자신의 관리자의 급여보다 높거나 같은 급여를 가진 직원의 ID를 출력하는 쿼리를 작성해봅시다.
+
+SELECT a.employee_id
+FROM EMPLOYEE a
+WHERE a.salary >= (
+SELECT salary
+FROM EMPLOYEE b
+WHERE a.manager_id = b.employee_id
+)
+ORDER BY employee_id;
