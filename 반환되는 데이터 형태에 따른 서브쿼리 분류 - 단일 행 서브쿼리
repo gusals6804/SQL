@@ -1,0 +1,21 @@
+REQUEST 테이블에는 요청 ID와 요청상태 정보가 담겨있습니다. 또한 REQUEST_DTL테이블에는 요청 상세 ID, 요청 ID, 요청 이름, 요청 내용 등의 정보가 담겨 있습니다.
+요청 상태가 실패(FAILED)인 요청의 상세 정보를 알고자 합니다. 
+이때, REQUEST 테이블에서 요청상태 값이 실패(FAILED)인 요청 ID가 1개이기 때문에 단일 행 서브쿼리 개념을 이용하여 해당 요청의 상세정보를 조회해 봅시다.
+REQUEST 테이블에 있는 요청상태 값이 실패(FAILED)인 요청 ID를 얻어서 그 요청에 대한 상세정보를 알아보는 쿼리를 작성해봅시다.
+
+-- 1. 요청상태가 FAILED인 요청 데이터를 조회하는 쿼리를 작성해보세요.
+
+SELECT request_id
+FROM REQUEST
+WHERE request_status = 'FAILED';
+
+-- 2. 위에서 작성한 쿼리를 서브쿼리로 이용하여 REQUEST_DTL 테이블에서 요청 상세를 조회하는 쿼리를 작성해보세요.
+
+SELECT request_dtl_id, request_id, request_name,
+request_content
+FROM REQUEST_DTL
+WHERE request_id = (
+SELECT request_id
+FROM REQUEST
+WHERE request_status = 'FAILED'
+)
