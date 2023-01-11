@@ -1,0 +1,16 @@
+EMPLOYEE 테이블에는 직원 ID, 관리자 ID, 급여 정보가 담겨 있습니다.
+급여가 8,000미만인 직원을 관리하는 관리자의 ID와 급여를 출력하고자 합니다. EMPLOYEE 테이블에는 관리자의 급여정보가 없기 때문에, 
+비연관 서브쿼리를 통해 급여가 8,000미만인 직원의 관리자 ID를 조회하고, 해당 ID에 대해 직원 ID와 급여정보를 조회해봅시다.
+비연관 서브쿼리를 이용하여, 급여가 8,000 미만인 직원의 관리자 ID와 급여를 출력하는 쿼리를 작성하세요.
+
+
+-- 자신의 관리자의 급여보다 높거나 같은 급여를 가진 직원의 ID를 출력하는 쿼리를 작성해봅시다.
+
+SELECT a.employee_id
+FROM EMPLOYEE a
+WHERE a.salary >= (
+SELECT salary
+FROM EMPLOYEE b
+WHERE a.manager_id = b.employee_id
+)
+ORDER BY employee_id;
