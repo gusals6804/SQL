@@ -1,0 +1,14 @@
+앞에서 풀었던 문제와 동일하게, REQUEST 테이블에는 요청 ID와 요청상태 정보가 담겨있습니다.
+또한 REQUEST_DTL테이블에는 요청 상세 ID, 요청 ID, 요청 이름, 요청 내용 등의 정보가 담겨 있습니다.
+이번 문제에서도 REQUEST 테이블에 있는 요청 상태가 실패(FAILED)인 요청 ID를 얻어서 그 요청에 대한 상세정보를 알아보는 쿼리를 작성해봅시다.
+다만, 이전 문제와는 다르게 요청상태 값이 실패인 요청 1개가 아니라, 여러 개에 대한 요청 상세 정보를 알아봅니다.
+
+-- 요청상태가 FAILED인 요청ID를 구하고, 해당 요청들에 대한 요청상세 정보를 조회하는 쿼리를 작성해보세요.
+
+SELECT request_dtl_id, request_id, request_name,
+request_content
+FROM REQUEST_DTL
+WHERE request_id IN (
+SELECT request_id FROM REQUEST
+WHERE request_status = 'FAILED'
+)
