@@ -1,0 +1,11 @@
+FOOD 테이블에는 음식 ID, 음식 타입, 음식 이름, 가격 정보가 담겨 있습니다.
+음식 중에서 임의의 Main 음식보다 가격이 비싼 음식을 조회하고자 합니다. 앞에서 배운 ANY를 이용하여 음식의 가격이 임의의 Main 음식보다 가격이 비싼지에 대한 조건을 작성해 봅시다.
+음식 중에서 음식 타입이 Main인 음식들의 가격을 구한 뒤, ANY를 이용하여 임의의 Main 음식보다 가격이 비싼 음식들에 대해서 조회하는 쿼리를 작성해 봅시다.
+
+-- 음식타입이 Main인 임의의 음식의 가격보다 비싼 음식들을 조회해봅시다.
+
+SELECT food_id, food_type, food_name, price
+FROM FOOD
+WHERE price > ANY(
+SELECT price FROM FOOD WHERE food_type = 'Main'
+);
