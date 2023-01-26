@@ -1,0 +1,15 @@
+EMPLOYEE 테이블에는 직원 ID, 부서 이름, 급여 정보가 담겨있습니다.
+업무 상 부서이름이 ‘개발’인 직원들의 정보만 조회하는 경우가 빈번하여, 해당 직원들에 대한 뷰를 별도로 만들고자 합니다.
+EMPLOYEE 테이블을 이용하여 부서 이름이 ‘개발’인 직원들의 직원 ID, 급여 정보를 가진 뷰(EMPLOYEE_DEV) 를 만드는 쿼리를 작성해봅시다.
+
+-- 1. 부서이름이 '개발'인 직원의 직원ID, 급여 정보를 가지는 뷰(EMPLOYEE_DEV)를 만드는 쿼리를 작성해봅시다.
+
+CREATE VIEW EMPLOYEE_DEV AS(
+SELECT employee_id, salary
+FROM EMPLOYEE
+WHERE department_name = '개발'
+);
+
+-- 2. 위에서 만든 뷰(EMPLOYEE_DEV)의 모든 데이터를 조회하는 쿼리를 작성해봅시다.
+
+SELECT * FROM EMPLOYEE_DEV;
